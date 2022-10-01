@@ -1,6 +1,7 @@
 package summit_app;
 
 
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -21,6 +22,7 @@ public class SummitController {
         Trail trail = new Trail();
 
         db = new Db();
+        db.openDB();
         HikerMySql hikerSql = new HikerMySql();
         TrailMySql trailSql = new TrailMySql();
 
@@ -192,6 +194,8 @@ public class SummitController {
 
             }
         } while(displayMenu);
+
+        db.closeDB();
     }
 }
 
